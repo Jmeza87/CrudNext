@@ -1,5 +1,11 @@
 import { Inter } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import BootstrapClient from "../libs/BootstrapClient";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import 'primeicons/primeicons.css';
+import "primereact/resources/themes/lara-dark-teal/theme.css"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,8 +16,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="es">
+      <body className={`bg-dark text-white-50 ${inter.className}`}>
+        <div className="contenedor">
+          <Header />
+
+          {children}
+          <BootstrapClient />
+
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
